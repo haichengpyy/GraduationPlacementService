@@ -1,18 +1,9 @@
+Developed a website based on Flask framework to provide graduation guidance services for students.
 
-## Resource
+Realised distinct functionalities for different roles, including students, alumni, and administrators. Students can easily access a variety of information, alumni have the opportunity to contribute valuable information, and administrators hold crucial approval rights, as well as generate yearly report.
 
-* [Flask1.0+](https://flask.palletsprojects.com/en/1.1.x/)
-* [SQLAlchemy](https://www.sqlalchemy.org/)
+You can download all the files and create a python project, if you are interested.
 
-* [flask_login]( https://www.cnblogs.com/qjj19931230/p/12405555.html)
+Make sure that mySQL AND APACHE is activated since this program uses local databases. (Recommend using XAMPP control panel)
 
-
-## library
-
-```py
-pip install Flask PyMySQL SQLAlchemy Flask-SQLAlchemy
-```
-
-1. secure.py  update your own db
-
-2. app -> __init__.py   update blueprint
+If you successfully run the program, please enter http://127.0.0.1:5000/uicer/login in your browser to enjoy the service!
