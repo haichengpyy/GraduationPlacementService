@@ -1,0 +1,184 @@
+{% extends 'base.html' %}
+
+
+{% block content %}
+<nav class="navbar navbar-expand-lg">
+            <div class="container">
+                <a class="navbar-brand d-flex align-items-center" href="#">
+                    <img src="{{url_for('static', filename ='images/logo.png')}}" class="img-fluid logo-image">
+
+                    <div class="d-flex flex-column">
+                        <strong class="logo-text">UIC</strong>
+                        <small class="logo-slogan">Graduation Placement Service</small>
+                    </div>
+                </a>
+
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav align-items-center ms-lg-5">
+                        <li class="nav-item">
+                            <a class="nav-link active" href="#">Register</a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link" href="#" onclick="alert('log in first！')">Homepage</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#" onclick="alert('log in first！')">share experience</a>
+                        </li>
+
+                        <li class="nav-item ms-lg-auto">
+
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link custom-btn btn" href="{{ url_for('uicer.login') }}">Log in</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+
+<section class="hero-section d-flex justify-content-center align-items-center">
+                <div class="section-overlay"></div>
+
+                <div class="container">
+                    <div class="row">
+
+                        <div class="col-lg-6 col-12 mb-5 mb-lg-0">
+                            <div class="hero-section-text mt-5">
+                                <h6 class="text-white">Are you looking for your graduation information?</h6>
+
+                                <h1 class="hero-title text-white mt-4 mb-4">Graduation Placement Service<br>  by Mango </h1>
+
+
+                            </div>
+                        </div>
+
+                        <div class="col-lg-6 col-12">
+                            <form class="custom-form hero-form"  method="post" role="form">
+                                <h3 class="text-white mb-3">
+                                     {% if reminder%}
+                                    {{ reminder }}
+
+
+                                    {% endif %}
+                                    <br>
+                                    Register if you're UICer
+
+
+                                </h3>
+
+                                <div class="row">
+                                    <div class="col-lg-6 col-md-6 col-12">
+                                        <div class="input-group">
+                                            <span class="input-group-text" id="basic-addon0"><i class="bi-person custom-icon"></i></span>
+
+                                            <input type="text" name="stuID" id="stuID"  class="form-control" placeholder="Student ID" required>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-lg-6 col-md-6 col-12">
+                                        <div class="input-group">
+                                            <span class="input-group-text" id="basic-addon1"><i class="bi-person custom-icon"></i></span>
+
+                                            <input type="text" name="uname" id="uname"  class="form-control" placeholder="Name" required>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-6 col-md-6 col-12">
+                                        <div class="input-group">
+                                            <span class="input-group-text" id="basic-addon2"></span>
+
+                                            <input type="password" name="password" id="password"  class="form-control" placeholder="Password" required>
+                                        </div>
+                                    </div>
+                                  <div class="col-lg-6 col-md-6 col-12">
+                                        <div class="input-group">
+                                            <span class="input-group-text" id="basic-addon3"></span>
+
+                                            <input type="password" name="repassword" id="repassword"  class="form-control" placeholder="Confirm Your Password" required>
+                                        </div>
+                                    </div>
+                                  <div class="col-lg-6 col-md-6 col-12">
+                                        <div class="input-group">
+                                            <span class="input-group-text" id="basic-addon4"><i class="bi-cash custom-icon"></i></span>
+
+
+                                            <select class="form-select form-control" name ="gender" id="gender" aria-label="Default select example">
+                                                <option value="Male">Male</option>
+                                                <option value="Female">Female</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                  <div class="col-lg-6 col-md-6 col-12">
+                                        <div class="input-group">
+                                            <span class="input-group-text" id="basic-addon5"></span>
+
+                                            <input type="text" name="gpa" id="gpa"  class="form-control" placeholder="Your GPA" required>
+                                        </div>
+                                    </div>
+
+
+                                  <div class="col-lg-6 col-md-6 col-12">
+                                        <div class="input-group">
+                                            <span class="input-group-text" id="basic-addon6"></span>
+
+                                            <input type="number" name="start_time" min="2005", max="2023" id ='start_time'    class="form-control" placeholder="Enrollment Year" required>
+                                        </div>
+                                    </div>
+                                  <div class="col-lg-6 col-md-6 col-12">
+                                        <div class="input-group">
+                                            <span class="input-group-text" id="basic-addon7"></span>
+
+                                            <input type="number" name="graduate_time" min="2009", max="2027"  id ='graduate_time'   class="form-control" placeholder="Graduate Year" required>
+                                        </div>
+                                    </div>
+                                    {% if reminder%}
+                                    <script>
+                                        window.setTimeout("alert('succussfully register!')", 100);
+                                        setTimeout(go, 1000);
+                                        function go(){
+                                            window.location.href="{{ url_for('uicer.login') }}";
+                                        }
+                                    </script>
+                                    {% endif %}
+
+
+                                    <div class="col-lg-12 col-12">
+
+                                        <button type="submit" class="form-control" value="Register">
+                                            Register
+                                        </button>
+                                    </div>
+
+
+                                </div>
+                            </form>
+                        </div>
+
+                    </div>
+                </div>
+            </section>
+
+<script>
+{% if reminder0%}
+alert('Wrong Student Number!');
+{% endif %}
+{% if reminder1%}
+alert('wrong graduate year!');
+{% endif %}
+{% if reminder2%}
+alert('Wrong Password!');
+{% endif %}
+{% if reminder3%}
+alert('already exist student!');
+{% endif %}
+{% if reminder4%}
+alert('wrong input GPA!');
+{% endif %}
+</script>
+
+{% endblock %}

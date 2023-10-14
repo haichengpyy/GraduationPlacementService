@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+
+{% block header %}
+  <h1>Hi,{{ stuname }}</h1>
+{% endblock %}
+
+{% block content %}
+  <a href="{{ url_for('uicer.register') }}">
+    <input type="button" value="register" id = "register" name="register" >
+  </a>
+{% endblock %}
